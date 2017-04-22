@@ -19,10 +19,12 @@
 	        	<td><%= task.text %></td>
 	        	<td><%= task.active %></td>
 	        	<td><%= link_to 'Editar Tarefa', edit_task_path(task) %></td>
+	        	<td><%= link_to 'Apagar', task, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
 	    	</tr>
 	  	<% end %>
   </tbody>	
 </table>
 
-
-<%= link_to 'Back', lists_path %>
+<%= link_to 'Nova Tarefa', new_task_path(:list=> @list) %>
+<br>
+<%= link_to 'Voltar', lists_path %>

@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <!--<th>User</th>-->
       <th>Nome</th>
       <th>Status</th>
       <th colspan="3"></th>
@@ -13,11 +12,10 @@
   <tbody>
     <% @listas.each do |list| %>
       <tr>
-        <!--<td><%= list.user.id %></td>-->
         <td><%= link_to list.name, list %></td>
         <td><%= list.public ? t("Publica") : t("Privada") %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_list_path(list) %></td>
+        <td><%= link_to 'Apagar', list, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
