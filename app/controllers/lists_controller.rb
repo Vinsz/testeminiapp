@@ -12,6 +12,10 @@ class ListsController < ApplicationController
   def show
   end
 
+  def publicas
+    @status = List.status(true)
+  end
+
   # GET /lists/new
   def new
     @list = List.new
