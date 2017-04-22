@@ -17,7 +17,7 @@
 		<% @abertas.each do |task| %>
 	    	<tr>
 	        	<td><%= task.text %></td>
-	        	<td><%= link_to 'Editar Tarefa', edit_task_path(task) %></td>
+	        	<td><%= link_to 'Editar Tarefa', edit_task_path(task, :list=> @list) %></td>
 	        	<td><%= link_to 'Apagar', task, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
 	    	</tr>
 	  	<% end %>
