@@ -1,19 +1,10 @@
 <h1>Listas Públicas</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>List</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @status.each do |publica| %>
       <tr>
         <td><%= link_to publica.name, new_favorite_path(publica, :id=>current_user, :list=> publica.id, :name =>publica.name) %></td>
-        <td><%= publica.public %></td>
       </tr>
     <% end %>
   </tbody>

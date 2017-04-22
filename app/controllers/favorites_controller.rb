@@ -16,7 +16,8 @@ class FavoritesController < ApplicationController
   # GET /favorites/new
   def new
     @favorite = Favorite.new
-    @exibe = Task.where(list_id: params[:list])
+    @abertas = Task.where(list_id: params[:list], active: true)
+    @fechadas = Task.where(list_id: params[:list], active: false)
   end
 
   # GET /favorites/1/edit

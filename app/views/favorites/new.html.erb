@@ -6,14 +6,18 @@
 			<th>Tarefas</th>
 		</tr>
 	</thead>
-	<% @exibe.each do |c| %>
-		<tbody>
-	     	<tr>
-		        <td><%= c.text %></td>
-		        <td><%= c.active %></td>
-			</tr>
-		</tbody>
-	<% end %>
+	<tbody>
+		<% @abertas.each do |task| %>
+	    	<tr>
+	        	<td><%= task.text %></td>
+	    	</tr>
+	  	<% end %>
+	  	<% @fechadas.each do |task| %>
+	    	<tr>
+	        	<td><del><%= task.text %></del></td>
+	    	</tr>
+	  	<% end %>
+	</tbody>
 </table>
 
 <%= render 'form', favorite: @favorite %>
