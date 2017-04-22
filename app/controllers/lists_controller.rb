@@ -5,6 +5,8 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = List.all
+    @favs = List.joins(:favorite).where(user_id: current_user)
+    @listas = List.where(user_id: current_user)
   end
 
   # GET /lists/1

@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @lists.each do |list| %>
+    <% @listas.each do |list| %>
       <tr>
         <!--<td><%= list.user.id %></td>-->
         <td><%= link_to list.name, list %></td>
@@ -24,8 +24,12 @@
 </table>
 <br>
 <h1>Favoritas</h1>
-
-<br>
+<% @favs.each do |fav| %>
+      <tr>
+        <td><%= link_to fav.name, fav %></td>
+      </tr>
+  <% end %>
+<br><br>
 <%= link_to 'Listas Públicas',  {:controller => 'lists', :action => 'publicas'} %>
 <br>
 <%= link_to 'Nova Lista', new_list_path %>
