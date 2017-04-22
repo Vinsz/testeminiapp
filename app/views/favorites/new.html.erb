@@ -1,4 +1,20 @@
-<h1>New Favorite</h1>
+<h1><%= params[:name] %></h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Tarefas</th>
+		</tr>
+	</thead>
+	<% @exibe.each do |c| %>
+		<tbody>
+	     	<tr>
+		        <td><%= c.text %></td>
+		        <td><%= c.active %></td>
+			</tr>
+		</tbody>
+	<% end %>
+</table>
 
 <%= render 'form', favorite: @favorite %>
 

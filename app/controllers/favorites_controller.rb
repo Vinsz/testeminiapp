@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
   # GET /favorites.json
   def index
     @favorites = Favorite.all
+    @status = List.status(true)
   end
 
   # GET /favorites/1
@@ -15,6 +16,7 @@ class FavoritesController < ApplicationController
   # GET /favorites/new
   def new
     @favorite = Favorite.new
+    @exibe = Task.where(list_id: params[:list])
   end
 
   # GET /favorites/1/edit
@@ -69,6 +71,6 @@ class FavoritesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def favorite_params
-      params.require(:favorite).permit(:list_id, :user_id)
+      params.require(:favorite).permit(:list_id, :user_id, :comment)
     end
 end
