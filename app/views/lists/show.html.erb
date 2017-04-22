@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>User:</strong>
-  <%= @list.user %>
+  <h1><%= @list.name %></h1>
 </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
+  <strong>Status:</strong>
+  <%= @list.public ? t("Pública") : t("Privada") %>
+  <br><br><%= link_to 'Editar Lista', edit_list_path(@list) %>
+<br><br>
+<table>
+	<thead>
+		<tr>
+			<th> Tarefa </th>
+			<th> Aberta </th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tasks.each do |task| %>
+	    	<tr>
+	        	<td><%= task.text %></td>
+	        	<td><%= task.active %></td>
+	        	<td><%= link_to 'Editar Tarefa', edit_task_path(task) %></td>
+	    	</tr>
+	  	<% end %>
+  </tbody>	
+</table>
 
-<p>
-  <strong>Public:</strong>
-  <%= @list.public %>
-</p>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
