@@ -12,7 +12,9 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-     @tasks = Task.where(list_id: params[:id])
+    @tasks = Task.where(list_id: params[:id])
+    @abertas = Task.where(active: true, list_id: params[:id])
+    @fechadas = Task.where(active: false, list_id: params[:id])
   end
 
   def publicas

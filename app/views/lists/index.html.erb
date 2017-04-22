@@ -20,7 +20,8 @@
     <% end %>
   </tbody>
 </table>
-<br>
+<%= link_to 'Nova Lista', new_list_path %>
+<br><br>
 <h1>Favoritas</h1>
 <% @favs.each do |fav| %>
       <tr>
@@ -30,4 +31,4 @@
 <br><br>
 <%= link_to 'Listas Públicas',  {:controller => 'lists', :action => 'publicas'} %>
 <br>
-<%= link_to 'Nova Lista', new_list_path %>
+
